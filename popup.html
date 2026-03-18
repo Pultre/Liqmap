@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiqMap</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 240px; background: #0d0f14; color: #fff; font-family: 'JetBrains Mono', monospace; border: 1px solid rgba(255,183,0,0.15); }
+    .header { padding: 14px 16px 12px; border-bottom: 1px solid rgba(255,183,0,0.1); background: #131620; }
+    .logo-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .logo-icon { font-size: 18px; }
+    .logo-text { font-size: 14px; font-weight: 700; letter-spacing: 0.2em; color: #ffb700; }
+    .tagline { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; }
+    .body { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+    .shortcut-info { background: rgba(255,183,0,0.06); border: 1px solid rgba(255,183,0,0.15); border-radius: 5px; padding: 8px 10px; display: flex; align-items: center; gap: 8px; }
+    .shortcut-key { background: rgba(255,183,0,0.15); border: 1px solid rgba(255,183,0,0.3); color: #ffb700; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.05em; white-space: nowrap; }
+    .shortcut-label { font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+    .btn-toggle { width: 100%; padding: 10px; background: rgba(255,183,0,0.1); border: 1px solid rgba(255,183,0,0.3); color: #ffb700; border-radius: 5px; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; transition: all 0.15s; text-align: center; }
+    .btn-toggle:hover { background: rgba(255,183,0,0.18); border-color: rgba(255,183,0,0.5); }
+    .status-row { display: flex; align-items: center; gap: 6px; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #2ecc71; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .status-text { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; }
+    .footer { padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 8px; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-row">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">LIQMAP</span>
+    </div>
+    <div class="tagline">COINGLASS HEATMAP ON TRADINGVIEW</div>
+  </div>
+  <div class="body">
+    <div class="shortcut-info">
+      <span class="shortcut-key">Alt + L</span>
+      <span class="shortcut-label">TOGGLE HEATMAP</span>
+    </div>
+    <button class="btn-toggle" id="toggleBtn">SHOW / HIDE</button>
+    <div class="status-row">
+      <div class="status-dot"></div>
+      <span class="status-text" id="statusText">READY — OPEN TRADINGVIEW</span>
+    </div>
+  </div>
+  <div class="footer">AUTO-DETECTS SYMBOL FROM CHART</div>
+  <script src="popup.js"></script>
+</body>
+</html>

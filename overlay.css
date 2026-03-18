@@ -1,0 +1,237 @@
+/* ─── LiqMap Overlay Styles ─────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+#liqmap-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999999;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+#liqmap-panel {
+  pointer-events: all;
+  position: absolute;
+  right: 16px;
+  bottom: 60px;
+  width: 480px;
+  height: 420px;
+  background: #0d0f14;
+  border: 1px solid rgba(255, 183, 0, 0.25);
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 1px rgba(255, 183, 0, 0.08),
+    0 24px 80px rgba(0,0,0,0.8),
+    0 0 40px rgba(255, 140, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+#liqmap-panel:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 183, 0, 0.18),
+    0 24px 80px rgba(0,0,0,0.85),
+    0 0 60px rgba(255, 140, 0, 0.1);
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+#liqmap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #131620;
+  border-bottom: 1px solid rgba(255, 183, 0, 0.12);
+  cursor: move;
+  user-select: none;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#liqmap-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#liqmap-logo {
+  font-size: 14px;
+  line-height: 1;
+}
+
+#liqmap-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffb700;
+}
+
+#liqmap-coin-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #0d0f14;
+  background: #ffb700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+#liqmap-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.liqmap-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.5);
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.liqmap-btn:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.liqmap-btn-close:hover {
+  background: rgba(255, 60, 60, 0.2);
+  border-color: rgba(255, 60, 60, 0.4);
+  color: #ff6060;
+}
+
+/* ── Body ─────────────────────────────────────────────────────────────────── */
+#liqmap-body {
+  flex: 1;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background: #090b0f;
+}
+
+#liqmap-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+  background: #090b0f;
+}
+
+/* ── Loading ──────────────────────────────────────────────────────────────── */
+#liqmap-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #090b0f;
+  z-index: 2;
+}
+
+.liqmap-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(255, 183, 0, 0.1);
+  border-top-color: #ffb700;
+  border-radius: 50%;
+  animation: liqmap-spin 0.8s linear infinite;
+}
+
+@keyframes liqmap-spin {
+  to { transform: rotate(360deg); }
+}
+
+.liqmap-loading-text {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+}
+
+/* ── Blocked state ────────────────────────────────────────────────────────── */
+#liqmap-blocked {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #090b0f;
+  z-index: 2;
+}
+
+.liqmap-blocked-icon {
+  font-size: 28px;
+  opacity: 0.5;
+}
+
+.liqmap-blocked-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+}
+
+.liqmap-blocked-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+}
+
+#liqmap-open-direct {
+  margin-top: 6px;
+  background: rgba(255, 183, 0, 0.12);
+  border: 1px solid rgba(255, 183, 0, 0.3);
+  color: #ffb700;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: all 0.15s;
+}
+
+#liqmap-open-direct:hover {
+  background: rgba(255, 183, 0, 0.2);
+  border-color: rgba(255, 183, 0, 0.5);
+}
+
+/* ── Resize handle ────────────────────────────────────────────────────────── */
+#liqmap-resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  cursor: nwse-resize;
+  background: linear-gradient(
+    -45deg,
+    transparent 0%, transparent 30%,
+    rgba(255,183,0,0.3) 30%, rgba(255,183,0,0.3) 45%,
+    transparent 45%, transparent 60%,
+    rgba(255,183,0,0.3) 60%, rgba(255,183,0,0.3) 75%,
+    transparent 75%
+  );
+  border-radius: 0 0 7px 0;
+  pointer-events: all;
+  z-index: 10;
+}
