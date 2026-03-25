@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+#te-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999999;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+#te-panel {
+  pointer-events: all;
+  position: absolute;
+  right: 16px;
+  bottom: 60px;
+  width: 260px;
+  background: #0d0f14;
+  border: 1px solid rgba(255,183,0,0.25);
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(255,183,0,0.06), 0 24px 60px rgba(0,0,0,0.8);
+  overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+#te-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  background: #131620;
+  border-bottom: 1px solid rgba(255,183,0,0.12);
+  cursor: move;
+  user-select: none;
+}
+
+#te-header-left { display: flex; align-items: center; gap: 7px; }
+#te-logo { font-size: 13px; }
+#te-title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ffb700; }
+#te-badge { font-size: 9px; font-weight: 700; color: #0d0f14; background: #ffb700; padding: 2px 6px; border-radius: 3px; letter-spacing: 0.08em; }
+#te-header-right { display: flex; gap: 4px; }
+
+.te-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.4);
+  width: 20px; height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.te-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.te-btn-close:hover { background: rgba(255,60,60,0.2); border-color: rgba(255,60,60,0.4); color: #ff6060; }
+
+/* ── Body ───────────────────────────────────────────────────────────────── */
+#te-body {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  gap: 4px;
+}
+
+/* ── Action buttons ─────────────────────────────────────────────────────── */
+#te-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.te-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  background: rgba(255,183,0,0.05);
+  border: 1px solid rgba(255,183,0,0.15);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  text-align: left;
+}
+
+.te-action-btn:hover {
+  background: rgba(255,183,0,0.12);
+  border-color: rgba(255,183,0,0.35);
+  transform: translateX(2px);
+}
+
+/* Tokenomist button — accent violet pour différencier */
+.te-action-btn-alt {
+  background: rgba(140,100,255,0.05);
+  border-color: rgba(140,100,255,0.2);
+}
+.te-action-btn-alt:hover {
+  background: rgba(140,100,255,0.12);
+  border-color: rgba(140,100,255,0.4);
+  transform: translateX(2px);
+}
+.te-action-btn-alt .te-action-arrow { color: #8c64ff; }
+
+.te-action-icon { font-size: 14px; flex-shrink: 0; }
+.te-action-label { flex: 1; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); text-transform: uppercase; }
+.te-action-arrow { font-size: 12px; color: #ffb700; opacity: 0.6; transition: opacity 0.15s; }
+.te-action-btn:hover .te-action-arrow { opacity: 1; }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+#te-footer-info {
+  font-size: 8px;
+  color: rgba(255,255,255,0.15);
+  text-align: center;
+  letter-spacing: 0.06em;
+  padding-top: 3px;
+}
+
+/* ── Twitter button ──────────────────────────────────────────────────────── */
+#te-twitter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: rgba(29,161,242,0.12);
+  border: 1px solid rgba(29,161,242,0.3);
+  text-decoration: none;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+#te-twitter-btn:hover {
+  background: rgba(29,161,242,0.25);
+  border-color: rgba(29,161,242,0.6);
+}
